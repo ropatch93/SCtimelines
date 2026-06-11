@@ -1,6 +1,5 @@
 # 2027 Sales Conference Timelines
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
