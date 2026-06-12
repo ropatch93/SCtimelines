@@ -1,4 +1,4 @@
-# 2027 Sales Conference Timelines
+Sales Conference 2027 Timelines
 
 <html lang="en">
 <head>
@@ -46,6 +46,9 @@
 
   .container { max-width: 1100px; margin: 0 auto; }
 
+  h1 { font-size: 22px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
   .layout {
     display: grid;
     grid-template-columns: 1fr 280px;
@@ -55,67 +58,7 @@
 
   .sidebar { position: sticky; top: 2rem; }
 
-  .guidelines-card {
-    background: var(--bg);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem;
-  }
-
-  .guidelines-card h2 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  .guideline-item {
-    display: flex;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .guideline-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .guideline-item:first-of-type { padding-top: 0; }
-
-  .guideline-num {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-tertiary);
-    min-width: 16px;
-    padding-top: 1px;
-  }
-
-  .guideline-text {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
-  .guideline-text strong {
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  @media (max-width: 760px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; }
-  }
-
-  h1 {
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-    color: var(--text);
-  }
-
-  .subtitle {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
+  /* Progress */
   .card-panel {
     background: var(--bg);
     border: 0.5px solid var(--border);
@@ -132,26 +75,11 @@
     justify-content: space-between;
   }
 
-  .progress-track {
-    height: 6px;
-    background: var(--bg-secondary);
-    border-radius: 3px;
-    overflow: hidden;
-  }
+  .progress-track { height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #639922; border-radius: 3px; transition: width 0.3s ease; }
 
-  .progress-fill {
-    height: 100%;
-    background: #639922;
-    border-radius: 3px;
-    transition: width 0.3s ease;
-  }
-
-  .toolbar {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
+  /* Toolbar */
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
 
   input[type="text"], input[type="date"], select, textarea {
     font-family: var(--font);
@@ -181,11 +109,7 @@
     cursor: pointer;
   }
 
-  textarea {
-    height: auto;
-    padding: 8px 12px;
-    resize: vertical;
-  }
+  textarea { height: auto; padding: 8px 12px; resize: vertical; }
 
   .toolbar input[type="text"] { flex: 1; min-width: 160px; }
   .toolbar input[type="date"] { width: 150px; }
@@ -212,12 +136,8 @@
   button:hover { background: var(--bg-secondary); }
   button:active { transform: scale(0.98); }
 
-  .filter-bar {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 1.25rem;
-  }
+  /* Filter */
+  .filter-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
 
   .filter-chip {
     padding: 4px 12px;
@@ -236,43 +156,45 @@
     border-color: var(--border-md);
   }
 
-  .timeline { position: relative; padding-left: 32px; }
+  /* Month groups */
+  .month-group { margin-bottom: 1.25rem; }
 
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
+  .month-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .month-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+  }
+
+  .month-line {
+    flex: 1;
+    height: 0.5px;
     background: var(--border);
   }
 
-  .milestone { position: relative; margin-bottom: 10px; }
-
-  .milestone::before {
-    content: '';
-    position: absolute;
-    left: -26px;
-    top: 14px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid;
-    background: var(--bg);
-    z-index: 1;
+  .month-count {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    white-space: nowrap;
   }
 
-  .milestone.todo::before { border-color: #888780; }
-  .milestone.in-progress::before { border-color: #185FA5; background: #B5D4F4; }
-  .milestone.done::before { border-color: #3B6D11; background: #97C459; }
-  .milestone.at-risk::before { border-color: #BA7517; background: #FAC775; }
+  .month-tasks { display: flex; flex-direction: column; gap: 6px; padding-left: 12px; border-left: 2px solid var(--border); }
 
+  /* milestone cards — no more dot timeline */
   .m-card {
     background: var(--bg);
     border: 0.5px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 11px 14px;
+    padding: 10px 14px;
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -281,6 +203,20 @@
 
   .m-card:hover { border-color: var(--border-md); }
 
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .status-dot.todo { border-color: #888780; background: var(--bg); }
+  .status-dot.in-progress { border-color: #185FA5; background: #B5D4F4; }
+  .status-dot.done { border-color: #3B6D11; background: #97C459; }
+  .status-dot.at-risk { border-color: #BA7517; background: #FAC775; }
+
   .m-body { flex: 1; min-width: 0; }
 
   .m-top {
@@ -288,30 +224,20 @@
     align-items: baseline;
     gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 3px;
   }
 
   .m-title { font-size: 14px; font-weight: 500; }
 
-  .m-date {
+  .m-date { font-size: 12px; color: var(--text-secondary); }
+
+  .m-subnote {
     font-size: 12px;
-    color: var(--text-secondary);
-  }
-
-  .m-notes {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
+    color: var(--text-tertiary);
     margin-top: 2px;
+    font-style: italic;
   }
 
-  .badge {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 500;
-  }
-
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
   .badge-todo { background: #F1EFE8; color: #5F5E5A; }
   .badge-in-progress { background: #E6F1FB; color: #185FA5; }
   .badge-done { background: #EAF3DE; color: #3B6D11; }
@@ -339,7 +265,6 @@
   }
 
   .icon-btn:hover { background: var(--bg-secondary); color: var(--text); }
-  .icon-btn:active { transform: scale(0.95); }
 
   .empty {
     text-align: center;
@@ -349,6 +274,36 @@
   }
 
   .empty i { font-size: 28px; display: block; margin-bottom: 8px; }
+
+  /* Guidelines sidebar */
+  .guidelines-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+  }
+
+  .guidelines-card h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .guideline-item {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .guideline-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .guideline-item:first-of-type { padding-top: 0; }
+
+  .guideline-num { font-size: 11px; font-weight: 500; color: var(--text-tertiary); min-width: 16px; padding-top: 1px; }
+
+  .guideline-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .guideline-text strong { font-weight: 500; color: var(--text); }
 
   /* Modal */
   .modal-overlay {
@@ -373,20 +328,11 @@
     max-width: 100%;
   }
 
-  .modal h2 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 1.1rem;
-  }
+  .modal h2 { font-size: 16px; font-weight: 500; margin-bottom: 1.1rem; }
 
   .field { margin-bottom: 12px; }
 
-  .field label {
-    font-size: 12px;
-    color: var(--text-secondary);
-    display: block;
-    margin-bottom: 4px;
-  }
+  .field label { font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 4px; }
 
   .field input[type="text"],
   .field input[type="date"],
@@ -395,19 +341,9 @@
 
   .field textarea { height: 80px; }
 
-  .modal-actions {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    margin-top: 1.25rem;
-  }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1.25rem; }
 
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-    border-color: transparent;
-  }
-
+  .btn-primary { background: var(--text); color: var(--bg); border-color: transparent; }
   .btn-primary:hover { background: var(--text-secondary); }
 
   /* Toast */
@@ -429,6 +365,11 @@
   }
 
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
 
   @media (max-width: 520px) {
     .toolbar { gap: 6px; }
@@ -458,6 +399,18 @@
         <div class="toolbar">
           <input type="text" id="new-title" placeholder="New milestone name…" aria-label="Milestone name" />
           <input type="date" id="new-date" aria-label="Due date" />
+          <select id="new-month" aria-label="Month">
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="Other">Other</option>
+          </select>
           <select id="new-status" aria-label="Status">
             <option value="todo">To do</option>
             <option value="in-progress">In progress</option>
@@ -465,7 +418,7 @@
             <option value="at-risk">At risk</option>
           </select>
           <button onclick="addMilestone()">
-            <i class="ti ti-plus" aria-hidden="true"></i> Add milestone
+            <i class="ti ti-plus" aria-hidden="true"></i> Add
           </button>
         </div>
 
@@ -477,7 +430,7 @@
           <button class="filter-chip" data-filter="done" onclick="setFilter('done', this)">Done</button>
         </div>
 
-        <div class="timeline" id="timeline" aria-live="polite"></div>
+        <div id="timeline" aria-live="polite"></div>
       </div>
     </div>
 
@@ -524,6 +477,21 @@
     <div class="field"><label for="edit-title">Name</label><input type="text" id="edit-title" /></div>
     <div class="field"><label for="edit-date">Date</label><input type="date" id="edit-date" /></div>
     <div class="field">
+      <label for="edit-month">Month</label>
+      <select id="edit-month">
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="field">
       <label for="edit-status">Status</label>
       <select id="edit-status">
         <option value="todo">To do</option>
@@ -543,9 +511,10 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const BADGE = { todo: 'badge-todo', 'in-progress': 'badge-in-progress', done: 'badge-done', 'at-risk': 'badge-at-risk' };
+  const BADGE  = { todo: 'badge-todo', 'in-progress': 'badge-in-progress', done: 'badge-done', 'at-risk': 'badge-at-risk' };
   const LABELS = { todo: 'To do', 'in-progress': 'In progress', done: 'Done', 'at-risk': 'At risk' };
-  const STORE_KEY = 'event-timeline-v1';
+  const MONTH_ORDER = ['October','November','December','January','February','March','April','May','June','Other'];
+  const STORE_KEY = 'event-timeline-v2';
 
   let milestones = [];
   let nextId = 1;
@@ -563,27 +532,27 @@
     } catch(e) {}
     if (!milestones.length) {
       milestones = [
-        { id: 1,  title: 'Finalize the Theme/Keynote',          date: '', status: 'todo', notes: 'October' },
-        { id: 2,  title: 'Call for Abstracts',                   date: '', status: 'todo', notes: 'October' },
-        { id: 3,  title: 'Call for Abstracts to SV Leads',       date: '', status: 'todo', notes: 'November' },
-        { id: 4,  title: 'SV Leads start working on agenda',     date: '', status: 'todo', notes: 'November' },
-        { id: 5,  title: 'SV Leads work on agenda',              date: '', status: 'todo', notes: 'December' },
-        { id: 6,  title: 'Finalize 2nd Chance Process',          date: '', status: 'todo', notes: 'January' },
-        { id: 7,  title: 'Roster final',                         date: '', status: 'todo', notes: 'January' },
-        { id: 8,  title: 'Kevin review of agenda',               date: '', status: 'todo', notes: 'January' },
-        { id: 9,  title: 'Kevin review of agenda',               date: '', status: 'todo', notes: 'February' },
-        { id: 10, title: 'TED Talk Announcement out',            date: '', status: 'todo', notes: 'February' },
-        { id: 11, title: 'Ted Talk Submissions/Winner',          date: '', status: 'todo', notes: 'February' },
-        { id: 12, title: 'Book/Podcast Announcement',            date: '', status: 'todo', notes: 'February' },
-        { id: 13, title: 'Finalize Client Speakers',             date: '', status: 'todo', notes: 'February' },
-        { id: 14, title: 'Agenda sent',                          date: '', status: 'todo', notes: 'March — due by March 15' },
-        { id: 15, title: 'Kick off call with Kevin and presenters', date: '', status: 'todo', notes: 'March' },
-        { id: 16, title: 'Prep calls with presenters',           date: '', status: 'todo', notes: 'March' },
-        { id: 17, title: 'Ask SV Leaders to propose award recipients', date: '', status: 'todo', notes: 'March' },
-        { id: 18, title: 'Awards Finalized to Marcomm',          date: '', status: 'todo', notes: 'April' },
-        { id: 19, title: 'PPTs due',                             date: '', status: 'todo', notes: 'April — due April 15' },
-        { id: 20, title: 'PPT Proofreading',                     date: '', status: 'todo', notes: 'April' },
-        { id: 21, title: 'Conference!',                          date: '', status: 'todo', notes: 'May' },
+        { id: 1,  title: 'Finalize the Theme/Keynote',               date: '', month: 'October',  status: 'todo', notes: '' },
+        { id: 2,  title: 'Call for Abstracts',                        date: '', month: 'October',  status: 'todo', notes: '' },
+        { id: 3,  title: 'Call for Abstracts to SV Leads',            date: '', month: 'November', status: 'todo', notes: '' },
+        { id: 4,  title: 'SV Leads start working on agenda',          date: '', month: 'November', status: 'todo', notes: '' },
+        { id: 5,  title: 'SV Leads work on agenda',                   date: '', month: 'December', status: 'todo', notes: '' },
+        { id: 6,  title: 'Finalize 2nd Chance Process',               date: '', month: 'January',  status: 'todo', notes: '' },
+        { id: 7,  title: 'Roster final',                              date: '', month: 'January',  status: 'todo', notes: '' },
+        { id: 8,  title: 'Kevin review of agenda',                    date: '', month: 'January',  status: 'todo', notes: '' },
+        { id: 9,  title: 'Kevin review of agenda',                    date: '', month: 'February', status: 'todo', notes: '' },
+        { id: 10, title: 'TED Talk Announcement out',                 date: '', month: 'February', status: 'todo', notes: '' },
+        { id: 11, title: 'TED Talk Submissions/Winner',               date: '', month: 'February', status: 'todo', notes: '' },
+        { id: 12, title: 'Book/Podcast Announcement',                 date: '', month: 'February', status: 'todo', notes: '' },
+        { id: 13, title: 'Finalize Client Speakers',                  date: '', month: 'February', status: 'todo', notes: '' },
+        { id: 14, title: 'Agenda sent',                               date: '', month: 'March',    status: 'todo', notes: 'Due by March 15' },
+        { id: 15, title: 'Kick off call with Kevin and presenters',   date: '', month: 'March',    status: 'todo', notes: '' },
+        { id: 16, title: 'Prep calls with presenters',                date: '', month: 'March',    status: 'todo', notes: '' },
+        { id: 17, title: 'Ask SV Leaders to propose award recipients',date: '', month: 'March',    status: 'todo', notes: '' },
+        { id: 18, title: 'Awards Finalized to Marcomm',               date: '', month: 'April',    status: 'todo', notes: '' },
+        { id: 19, title: 'PPTs due',                                  date: '', month: 'April',    status: 'todo', notes: 'Due April 15' },
+        { id: 20, title: 'PPT Proofreading',                          date: '', month: 'April',    status: 'todo', notes: '' },
+        { id: 21, title: 'Conference!',                               date: '', month: 'May',      status: 'todo', notes: '' },
       ];
       nextId = 22;
       save();
@@ -606,38 +575,63 @@
 
   function render() {
     const tl = document.getElementById('timeline');
-    const visible = activeFilter === 'all' ? milestones : milestones.filter(m => m.status === activeFilter);
-    const done = milestones.filter(m => m.status === 'done').length;
+    const filtered = activeFilter === 'all' ? milestones : milestones.filter(m => m.status === activeFilter);
+    const done  = milestones.filter(m => m.status === 'done').length;
     const total = milestones.length;
-    const pct = total ? Math.round(done / total * 100) : 0;
+    const pct   = total ? Math.round(done / total * 100) : 0;
 
     document.getElementById('prog-label').textContent = `${done} of ${total} milestone${total !== 1 ? 's' : ''} complete`;
-    document.getElementById('prog-pct').textContent = pct + '%';
-    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-pct').textContent   = pct + '%';
+    document.getElementById('prog-fill').style.width  = pct + '%';
 
-    if (!visible.length) {
+    if (!filtered.length) {
       tl.innerHTML = `<div class="empty"><i class="ti ti-calendar-off" aria-hidden="true"></i>No milestones here yet</div>`;
       return;
     }
 
-    tl.innerHTML = visible.map(m => `
-      <div class="milestone ${m.status}">
-        <div class="m-card">
-          <div class="m-body">
-            <div class="m-top">
-              <span class="m-title">${esc(m.title)}</span>
-              ${m.date ? `<span class="m-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:12px;vertical-align:-1px;margin-right:3px;"></i>${fmt(m.date)}</span>` : ''}
-              <span class="badge ${BADGE[m.status]}">${LABELS[m.status]}</span>
-            </div>
-            ${m.notes ? `<div class="m-notes">${esc(m.notes)}</div>` : ''}
+    // Group by month in order
+    const groups = {};
+    MONTH_ORDER.forEach(m => groups[m] = []);
+    filtered.forEach(m => {
+      const key = MONTH_ORDER.includes(m.month) ? m.month : 'Other';
+      groups[key].push(m);
+    });
+
+    let html = '';
+    MONTH_ORDER.forEach(month => {
+      const items = groups[month];
+      if (!items.length) return;
+      const doneCount = items.filter(m => m.status === 'done').length;
+      html += `
+        <div class="month-group">
+          <div class="month-header">
+            <span class="month-label">${month}</span>
+            <div class="month-line"></div>
+            <span class="month-count">${doneCount}/${items.length} done</span>
           </div>
-          <div class="m-actions">
-            <button class="icon-btn" title="Edit" aria-label="Edit ${esc(m.title)}" onclick="openEdit(${m.id})"><i class="ti ti-edit" aria-hidden="true"></i></button>
-            <button class="icon-btn" title="Delete" aria-label="Delete ${esc(m.title)}" onclick="remove(${m.id})"><i class="ti ti-trash" aria-hidden="true"></i></button>
+          <div class="month-tasks">
+            ${items.map(m => `
+              <div class="m-card">
+                <div class="status-dot ${m.status}"></div>
+                <div class="m-body">
+                  <div class="m-top">
+                    <span class="m-title">${esc(m.title)}</span>
+                    ${m.date ? `<span class="m-date"><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;margin-right:2px;"></i>${fmt(m.date)}</span>` : ''}
+                    <span class="badge ${BADGE[m.status]}">${LABELS[m.status]}</span>
+                  </div>
+                  ${m.notes ? `<div class="m-subnote">${esc(m.notes)}</div>` : ''}
+                </div>
+                <div class="m-actions">
+                  <button class="icon-btn" title="Edit" onclick="openEdit(${m.id})"><i class="ti ti-edit"></i></button>
+                  <button class="icon-btn" title="Delete" onclick="remove(${m.id})"><i class="ti ti-trash"></i></button>
+                </div>
+              </div>
+            `).join('')}
           </div>
-        </div>
-      </div>
-    `).join('');
+        </div>`;
+    });
+
+    tl.innerHTML = html;
   }
 
   function addMilestone() {
@@ -647,22 +641,19 @@
       id: nextId++,
       title: t,
       date: document.getElementById('new-date').value,
+      month: document.getElementById('new-month').value,
       status: document.getElementById('new-status').value,
       notes: ''
     });
     document.getElementById('new-title').value = '';
-    document.getElementById('new-date').value = '';
-    save();
-    render();
-    toast('Milestone added');
+    document.getElementById('new-date').value  = '';
+    save(); render(); toast('Milestone added');
   }
 
   function remove(id) {
     if (!confirm('Delete this milestone?')) return;
     milestones = milestones.filter(m => m.id !== id);
-    save();
-    render();
-    toast('Milestone deleted');
+    save(); render(); toast('Milestone deleted');
   }
 
   function setFilter(f, el) {
@@ -675,29 +666,26 @@
   function openEdit(id) {
     editingId = id;
     const m = milestones.find(x => x.id === id);
-    document.getElementById('edit-title').value = m.title;
-    document.getElementById('edit-date').value = m.date;
+    document.getElementById('edit-title').value  = m.title;
+    document.getElementById('edit-date').value   = m.date;
+    document.getElementById('edit-month').value  = m.month || 'Other';
     document.getElementById('edit-status').value = m.status;
-    document.getElementById('edit-notes').value = m.notes;
+    document.getElementById('edit-notes').value  = m.notes;
     document.getElementById('edit-modal').classList.add('open');
     document.getElementById('edit-title').focus();
   }
 
-  function closeModal() {
-    document.getElementById('edit-modal').classList.remove('open');
-  }
+  function closeModal() { document.getElementById('edit-modal').classList.remove('open'); }
 
   function saveEdit() {
     const m = milestones.find(x => x.id === editingId);
     const t = document.getElementById('edit-title').value.trim();
-    m.title = t || m.title;
-    m.date = document.getElementById('edit-date').value;
+    m.title  = t || m.title;
+    m.date   = document.getElementById('edit-date').value;
+    m.month  = document.getElementById('edit-month').value;
     m.status = document.getElementById('edit-status').value;
-    m.notes = document.getElementById('edit-notes').value;
-    closeModal();
-    save();
-    render();
-    toast('Changes saved');
+    m.notes  = document.getElementById('edit-notes').value;
+    closeModal(); save(); render(); toast('Changes saved');
   }
 
   function toast(msg) {
@@ -707,17 +695,9 @@
     setTimeout(() => el.classList.remove('show'), 2000);
   }
 
-  document.getElementById('edit-modal').addEventListener('click', e => {
-    if (e.target === e.currentTarget) closeModal();
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  document.getElementById('new-title').addEventListener('keydown', e => {
-    if (e.key === 'Enter') addMilestone();
-  });
+  document.getElementById('edit-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.getElementById('new-title').addEventListener('keydown', e => { if (e.key === 'Enter') addMilestone(); });
 
   load();
   render();
