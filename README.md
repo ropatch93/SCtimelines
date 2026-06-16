@@ -464,6 +464,18 @@ Sales Conference 2027 Timelines
         <div class="guideline-item">
           <span class="guideline-num">7</span>
           <span class="guideline-text"><strong>Pre-conference reading material</strong> should be referenced in every session</span>
+          </div>
+        <div class="guideline-item">
+          <span class="guideline-num">7</span>
+          <span class="guideline-text"><strong>Balance of presenters</strong> (male/female and regional coverage)</span>
+          </div>
+        <div class="guideline-item">
+          <span class="guideline-num">7</span>
+          <span class="guideline-text"><strong>Strong presenteres</strong> Beginning and end of the day</span>
+          </div>
+        <div class="guideline-item">
+          <span class="guideline-num">7</span>
+          <span class="guideline-text"><strong>All sessions</strong> should have action items, storytelling, how-to's, and built in scrimmage time</span>
         </div>
       </div>
     </div>
